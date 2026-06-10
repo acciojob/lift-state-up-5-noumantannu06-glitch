@@ -3,29 +3,23 @@ import "./../styles/App.css";
 import LoginForm from "../LoginForm";
 
 
-const App = () => {
+
+function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleLogin = () => {
     setIsLoggedIn(true);
   };
 
   return (
     <div>
-      {/* Do not remove the main div */}
-      <h1>Lift State Up Demo</h1>
-
       {isLoggedIn ? (
-        <h2>Welcome! You are logged in.</h2>
+        <h1>You are logged in!</h1>
       ) : (
-        <LoginForm
-          isLoggedIn={isLoggedIn}
-          setIsLoggedIn={setIsLoggedIn}
-        />
+        <LoginForm onLogin={handleLogin} />
       )}
     </div>
   );
-};
+}
 
 export default App;
